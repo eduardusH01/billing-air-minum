@@ -22,7 +22,7 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware('role:admin')->get('/dashboard', function(){
-    return 'Dashboard';
-})->name('dashboard');
+Route::middleware('role:user')->get('/home', 'HomeController@index')->name('home');
+Route::middleware('role:admin')->get('/dashboard', 'AdminController@index')->name('dashboard');
+
+Route::resource('/users', 'UserController');
