@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Customer;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users')->with('users', $users);
+        $customer = Customer::all();
+        return view('customers')->with('customers', $customer);
     }
 
     /**

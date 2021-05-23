@@ -1,12 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('nav')
-<a class="navbar-brand" href="{{ url('/') }}">
-    Admin
-</a>
-@endsection
-
-@section('content')
+@section('konten')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

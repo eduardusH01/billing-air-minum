@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -22,7 +23,8 @@ Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('role:user')->get('/home', 'HomeController@index')->name('home');
-Route::middleware('role:admin')->get('/dashboard', 'AdminController@index')->name('dashboard');
+Route::middleware('role:user')->get('/pengguna', 'HomeController@index')->name('home');
+Route::middleware('role:admin')->get('/admin', 'AdminController@index')->name('dashboard');
 
-Route::resource('/users', 'UserController');
+Route::middleware('role:admin')->resource('admin/users', 'UserController');
+Route::middleware('role:admin')->resource('admin/customers', 'CustomerController');

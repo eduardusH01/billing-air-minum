@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return "ini show";
     }
 
     /**
@@ -45,7 +45,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
