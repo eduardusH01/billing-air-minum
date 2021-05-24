@@ -27,4 +27,7 @@ Route::middleware('role:user')->get('/pengguna', 'HomeController@index')->name('
 Route::middleware('role:admin')->get('/admin', 'AdminController@index')->name('dashboard');
 
 Route::middleware('role:admin')->resource('admin/users', 'UserController');
-Route::middleware('role:admin')->resource('admin/customers', 'CustomerController');
+Route::middleware('role:admin')->get('admin/customers', 'CustomerController@index')->name('customers.index');
+Route::middleware('role:admin')->get('/admin/customers/create', 'CustomerController@create');
+Route::middleware('role:admin')->post('/admin/customers/store', 'CustomerController@store')->name('customers.store');
+Route::middleware('role:admin')->get('/admin/customers/delete/{customer}', 'CustomerController@delete');

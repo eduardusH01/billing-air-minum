@@ -20,7 +20,7 @@
                 <td>{{$user->updated_at}}</td>
                 <td>
                     <a class="btn btn-sm btn-warning">Edit</a>
-                    <a class="btn btn-sm btn-danger">Hapus</a>
+                    <a class="btn btn-sm btn-danger" href="">Hapus</a>
                 </td>
             </tr>
         @endforeach

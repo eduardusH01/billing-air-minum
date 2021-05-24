@@ -40,6 +40,11 @@
         overflow-y: hidden;
     }
 
+    main{
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .sidebar{
         flex-grow: 1;
     }
@@ -88,11 +93,6 @@
             <li class="btn-toggle-nav">
                 <a href="#" class="nav-link text-white">
                 Products
-                </a>
-            </li>
-            <li class="btn-toggle-nav">
-                <a href="#" class="nav-link text-white">
-                Customers
                 </a>
             </li>
         </ul>

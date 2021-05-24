@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users')->with('users', $users);
+        return view('user.users')->with('users', $users);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -81,6 +81,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

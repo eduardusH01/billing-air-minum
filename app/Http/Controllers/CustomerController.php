@@ -15,7 +15,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        return view('customers')->with('customers', $customer);
+        return view('customer.customers')->with('customers', $customer);
     }
 
     /**
@@ -25,7 +25,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.create');
     }
 
     /**
@@ -36,7 +36,29 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required',
+            'alamat' => 'required',
+            'Id_kelurahan' => 'required',
+            'Id_kecamatan' => 'required',
+            'Id_kabupaten' => 'required',
+            'Id_provinsi' => 'required',
+            'Nik' => 'required',
+            'Kode_pos' => 'required'
+        ]);
+
+        Customer::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'Id_kelurahan' => $request->Id_kelurahan,
+            'Id_kecamatan' => $request->Id_kecamatan,
+            'Id_kabupaten' => $request->Id_kabupaten,
+            'Id_provinsi' => $request->Id_provinsi,
+            'Nik' => $request->Nik,
+            'Kode_pos' => $request->Kode_pos
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -79,8 +101,9 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+
+    public function delete($id){
+        $customer = Customer::where('Id',$id)->delete();
+        return redirect()->back();
     }
 }

@@ -12,5 +12,5 @@ class Customer extends Model
 {
     use HasFactory, Notifiable, HasRoles;
 
-    protected $table = 'customer';
+    protected $table = "customer";
 }

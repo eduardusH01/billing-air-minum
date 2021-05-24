@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('konten')
+<div>
+    <a href="/admin/customers/create" class="btn btn-primary btn-md">Tambah Customer Baru</a>
+</div><br>
 <table class="table table-bordered">
     <thead>
         <th>Id</th>
@@ -26,8 +29,10 @@
                 <td>{{$customer->Id_provinsi}}</td>
                 <td>{{$customer->Kode_pos}}</td>
                 <td>
-                    <a class="btn btn-sm btn-warning">Edit</a>
-                    <a class="btn btn-sm btn-danger">Hapus</a>
+                    <a class="btn btn-sm btn-warning float-left">Edit</a>
+                    @can('delete customer')
+                    <a class="btn btn-sm btn-danger float-left" href="/admin/customers/delete/{{ $customer->Id }}">Hapus</a>
+                    @endcan
                 </td>
             </tr>
         @endforeach
