@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -50,5 +51,27 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $user->assignRole($role2);
+
+        // $customer1 = Customer::create([
+        //     'nama' => 'spongebob',
+        //     'alamat' => 'Bikini Bottom',
+        //     'Id_kelurahan' => '123',
+        //     'Id_kecamatan' => '123',
+        //     'Id_kabupaten' => '123',
+        //     'Id_provinsi' => '123',
+        //     'Nik' => '5434323114332223',
+        //     'Kode_pos' => '12345'
+        // ]);
+
+        // $customer2 = Customer::create([
+        //     'nama' => 'patrick',
+        //     'alamat' => 'Bikini Bottom',
+        //     'Id_kelurahan' => '123',
+        //     'Id_kecamatan' => '123',
+        //     'Id_kabupaten' => '123',
+        //     'Id_provinsi' => '123',
+        //     'Nik' => '5434323114332223',
+        //     'Kode_pos' => '12345'
+        // ]);
     }
 }

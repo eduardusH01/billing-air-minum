@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Customer;
 
 class UserController extends Controller
 {
@@ -12,6 +13,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+     {
+         $this->Customer = new Customer();
+         $this->User = new User();
+     }
+
     public function index()
     {
         $users = User::all();
@@ -58,7 +66,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'user' => $this->User->detailData($id),
+        ];
+        return view('user.edit', $data);
     }
 
     /**
@@ -68,9 +79,21 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        Request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        $data = [
+            'name' => Request()->name,
+            'email' => Request()->email,
+        ];
+
+        $this->User->editData($id, $data);
+
+        return redirect('/admin/users');
     }
 
     /**
@@ -81,6 +104,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
+        $user = User::where('id',$id)->delete();
+        return redirect()->back();
     }
 }

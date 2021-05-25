@@ -2,11 +2,12 @@
 
 @section('konten')
 <div>
-    <a href="/admin/customers/create" class="btn btn-primary btn-md">Tambah Customer Baru</a>
+    <h2>Tabel Customer</h2>
 </div><br>
 <table class="table table-bordered">
     <thead>
         <th>Id</th>
+        <th>Id User</th>
         <th>Nama</th>
         <th>Alamat</th>
         <th>Id Kelurahan</th>
@@ -21,6 +22,7 @@
         @foreach($customers as $customer)
             <tr>
                 <td>{{$customer->Id}}</td>
+                <td>{{$customer->Id_user}}</td>
                 <td>{{$customer->nama}}</td>
                 <td>{{$customer->alamat}}</td>
                 <td>{{$customer->Id_kelurahan}}</td>
@@ -29,10 +31,8 @@
                 <td>{{$customer->Id_provinsi}}</td>
                 <td>{{$customer->Kode_pos}}</td>
                 <td>
-                    <a class="btn btn-sm btn-warning float-left">Edit</a>
-                    @can('delete customer')
-                    <a class="btn btn-sm btn-danger float-left" href="/admin/customers/delete/{{ $customer->Id }}">Hapus</a>
-                    @endcan
+                    <a class="btn btn-sm btn-warning" href="/admin/customers/edit/{{ $customer->Id }}">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="/admin/customers/delete/{{ $customer->Id }}">Hapus</a>
                 </td>
             </tr>
         @endforeach
