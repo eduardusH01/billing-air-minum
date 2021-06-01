@@ -6,7 +6,7 @@
 </div><br>
 <table class="table table-bordered">
     <thead>
-        <th>Id</th>
+        <th>No</th>
         <th>Id User</th>
         <th>Nama</th>
         <th>Alamat</th>
@@ -19,9 +19,10 @@
         <th>Action</th>
     </thead>
     <tbody>
+        <?php $no = 1 ?>
         @foreach($customers as $customer)
             <tr>
-                <td>{{$customer->Id}}</td>
+                <td>{{$no++}}</td>
                 <td>{{$customer->Id_user}}</td>
                 <td>{{$customer->nama}}</td>
                 <td>{{$customer->alamat}}</td>

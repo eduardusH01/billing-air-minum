@@ -18,7 +18,7 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="/admin/customers/create/{{ $user->id }}">Jadikan Customer</a>
+                    <!-- <a class="btn btn-sm btn-success" href="/admin/customers/create/{{ $user->id }}">Jadikan Customer</a> -->
                     <a class="btn btn-sm btn-warning" href="/admin/users/edit/{{ $user->id }}">Edit</a>
                     <a class="btn btn-sm btn-danger" href="/admin/users/delete/{{ $user->id }}">Hapus</a>
                 </td>

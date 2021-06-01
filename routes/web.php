@@ -37,3 +37,5 @@ Route::middleware('role:admin')->post('/admin/customers/store/{id}', 'CustomerCo
 Route::middleware('role:admin')->get('/admin/customers/delete/{id}', 'CustomerController@delete');
 Route::middleware('role:admin')->get('/admin/customers/edit/{id}', 'CustomerController@edit');
 Route::middleware('role:admin')->post('/admin/customers/update/{id}', 'CustomerController@update');
+
+Route::middleware('role:admin')->get('/admin/pelanggan', 'PelangganController@index');

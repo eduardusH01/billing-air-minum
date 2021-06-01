@@ -86,13 +86,13 @@
                 </a>
             </li>
             <li class="btn-toggle-nav">
-                <a href="#" class="nav-link text-white">
-                Orders
+                <a href="/admin/pelanggan" class="nav-link text-white">
+                Pelanggan
                 </a>
             </li>
             <li class="btn-toggle-nav">
                 <a href="#" class="nav-link text-white">
-                Products
+                Tagihan
                 </a>
             </li>
         </ul>

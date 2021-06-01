@@ -48,6 +48,10 @@ class User extends Authenticatable
         return DB::table('users')->where('id', $id)->first();
     }
 
+    public function getDataWithEmail($email){
+        return DB::table('users')->where('email', $email)->first();
+    }
+
     public function editData($id, $data){
         return DB::table('users')->where('id', $id)->update($data);
     }

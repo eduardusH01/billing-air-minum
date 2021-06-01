@@ -4,7 +4,7 @@
     <div>
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Customer</h2>
+                <h2>Menambahkan Pelanggan Baru</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-sm btn-primary" href="{{ route('customers.index') }}"> <i class="fas fa-backward ">Go Back</i> </a>
@@ -22,14 +22,14 @@
             </ul>
         </div>
     @endif
-    <form action="/admin/customers/update/{{ $customer->Id }}" method="POST" >
+    <form action="/admin/pelanggan/store/{{ $pelanggan->id }}" method="POST" >
         @csrf
 
         <div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nama:</strong>
-                    <input type="text" name="nama" class="form-control" value="{{ $customer->nama }}" readonly>
+                    <input type="text" name="nama" class="form-control" value="{{ $user->name }}" readonly>
 
                     @if($errors->has('nama'))
                         <div class="text-danger">
@@ -40,9 +40,21 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Alamat:</strong>
-                    <input type="text" name="alamat" class="form-control" value="{{ $customer->alamat }}">
+                    <strong>Id User:</strong>
+                    <input type="number" name="Id_user" class="form-control" value="{{ $user->id }}" readonly>
 
+                    @if($errors->has('Id_user'))
+                        <div class="text-danger">
+                            {{ $errors->first('Id_user') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Alamat:</strong>
+                    <textarea class="form-control" style="height:50px" name="alamat"
+                        placeholder="Alamat"></textarea>
 
                     @if($errors->has('alamat'))
                         <div class="text-danger">
@@ -54,7 +66,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Id kelurahan:</strong>
-                    <input type="number" name="Id_kelurahan" class="form-control" value="{{ $customer->Id_kelurahan }}">
+                    <input type="number" name="Id_kelurahan" class="form-control" placeholder="Id kelurahan">
                 
                     @if($errors->has('Id_kelurahan'))
                         <div class="text-danger">
@@ -66,7 +78,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Id kecamatan:</strong>
-                    <input type="number" name="Id_kecamatan" class="form-control" value="{{ $customer->Id_kecamatan }}">
+                    <input type="number" name="Id_kecamatan" class="form-control" placeholder="Id kecamatan">
                 
                     @if($errors->has('Id_kecamatan'))
                         <div class="text-danger">
@@ -78,7 +90,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Id kabupaten:</strong>
-                    <input type="number" name="Id_kabupaten" class="form-control" value="{{ $customer->Id_kabupaten }}">
+                    <input type="number" name="Id_kabupaten" class="form-control" placeholder="Id kabupaten">
 
                     @if($errors->has('Id_kabupaten'))
                         <div class="text-danger">
@@ -90,7 +102,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Id provinsi:</strong>
-                    <input type="number" name="Id_provinsi" class="form-control" value="{{ $customer->Id_provinsi }}">
+                    <input type="number" name="Id_provinsi" class="form-control" placeholder="Id provinsi">
 
                     @if($errors->has('Id_provinsi'))
                         <div class="text-danger">
@@ -102,7 +114,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>NIK:</strong>
-                    <input type="number" name="Nik" class="form-control" value="{{ $customer->Nik }}">
+                    <input type="number" name="Nik" class="form-control" placeholder="Nik">
 
                     @if($errors->has('Nik'))
                         <div class="text-danger">
@@ -114,7 +126,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Kode pos:</strong>
-                    <input type="number" name="Kode_pos" class="form-control" value="{{ $customer->Kode_pos }}">
+                    <input type="number" name="Kode_pos" class="form-control" placeholder="Kode pos">
 
                     @if($errors->has('Kode_pos'))
                         <div class="text-danger">
