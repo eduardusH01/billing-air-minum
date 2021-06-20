@@ -23,7 +23,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        return view('customer.customers')->with('customers', $customer);
+        return view('customer.customers', ['customers' => $customer]);
     }
 
     /**
@@ -99,7 +99,8 @@ class CustomerController extends Controller
         $data = [
             'customer' => $this->Customer->detailData($id),
         ];
-        return view('customer.edit', $data);    }
+        return view('customer.edit', $data);
+    }
 
     /**
      * Update the specified resource in storage.

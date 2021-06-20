@@ -38,4 +38,9 @@ Route::middleware('role:admin')->get('/admin/customers/delete/{id}', 'CustomerCo
 Route::middleware('role:admin')->get('/admin/customers/edit/{id}', 'CustomerController@edit');
 Route::middleware('role:admin')->post('/admin/customers/update/{id}', 'CustomerController@update');
 
-Route::middleware('role:admin')->get('/admin/pelanggan', 'PelangganController@index');
+Route::middleware('role:admin')->get('/admin/pelanggan', 'PelangganController@index')->name('pelanggan.index');
+Route::middleware('role:admin')->get('/admin/pelanggan/create', 'PelangganController@create');
+Route::middleware('role:admin')->post('/admin/pelanggan/store', 'PelangganController@store');
+Route::middleware('role:admin')->get('/admin/pelanggan/edit/{id}', 'PelangganController@edit');
+Route::middleware('role:admin')->post('/admin/pelanggan/update/{id}', 'PelangganController@update');
+Route::middleware('role:admin')->get('/admin/pelanggan/delete/{id}', 'PelangganController@destroy');

@@ -36,6 +36,8 @@ class CreateCustomerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer');
+        Schema::disableForeignKeyConstraints();
+        Schema::drop('customer');
+        Schema::enableForeignKeyConstraints();
     }
 }

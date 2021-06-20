@@ -16,7 +16,6 @@ class CreateRefJenisLanggananTable extends Migration
         Schema::create('ref_jenis_langganan', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 30);
-            $table->integer('Id_kabupaten');
             $table->integer('Batas_bawah');
             $table->bigInteger('Tarif_dasar_satuan');
             $table->timestamps();
