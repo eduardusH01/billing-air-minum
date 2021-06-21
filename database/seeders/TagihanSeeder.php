@@ -16,7 +16,7 @@ class TagihanSeeder extends Seeder
     {
         Tagihan::create([
             'Id_pelanggan' => '1', 
-            'Tahun_bulan' => '01-04-2021', 
+            'Tahun_bulan' => '2021-04-01', 
             'Meteran_bulan_lalu' => '22', 
             'Meteran_bulan_sekarang' => '21', 
             'Tarif_dasar' => '5000', 
@@ -26,8 +26,8 @@ class TagihanSeeder extends Seeder
             'updated_by' => 'Admin'
         ]);
         Tagihan::create([
-            'Id_pelanggan' => '1', 
-            'Tahun_bulan' => '01-05-2021', 
+            'Id_pelanggan' => '2', 
+            'Tahun_bulan' => '2021-05-01', 
             'Meteran_bulan_lalu' => '21', 
             'Meteran_bulan_sekarang' => '25', 
             'Tarif_dasar' => '5000', 

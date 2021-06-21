@@ -44,3 +44,10 @@ Route::middleware('role:admin')->post('/admin/pelanggan/store', 'PelangganContro
 Route::middleware('role:admin')->get('/admin/pelanggan/edit/{id}', 'PelangganController@edit');
 Route::middleware('role:admin')->post('/admin/pelanggan/update/{id}', 'PelangganController@update');
 Route::middleware('role:admin')->get('/admin/pelanggan/delete/{id}', 'PelangganController@destroy');
+
+Route::middleware('role:admin')->get('/admin/tagihan', 'TagihanController@index')->name('tagihan.index');
+Route::middleware('role:admin')->get('/admin/tagihan/create', 'TagihanController@create');
+Route::middleware('role:admin')->post('/admin/tagihan/store', 'TagihanController@store');
+Route::middleware('role:admin')->get('/admin/tagihan/edit/{id}', 'TagihanController@edit');
+Route::middleware('role:admin')->post('/admin/tagihan/update/{id}', 'TagihanController@update');
+Route::middleware('role:admin')->get('/admin/tagihan/delete/{id}', 'TagihanController@destroy');

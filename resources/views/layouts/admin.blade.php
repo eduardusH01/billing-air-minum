@@ -91,7 +91,7 @@
                 </a>
             </li>
             <li class="btn-toggle-nav">
-                <a href="#" class="nav-link text-white">
+                <a href="/admin/tagihan" class="nav-link text-white">
                 Tagihan
                 </a>
             </li>
