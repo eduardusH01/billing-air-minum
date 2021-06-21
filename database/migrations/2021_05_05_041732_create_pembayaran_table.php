@@ -20,6 +20,8 @@ class CreatePembayaranTable extends Migration
             $table->bigInteger('Jml_bayar');
             $table->foreignId('Id_user_operator')->constrained('users')
                 ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('Id_pelanggan')->constrained('pelanggan')
+                ->onDelete('cascade')->onUpdate('cascade');
             $table->string('created_by', 50);
             $table->string('updated_by', 50);
             $table->timestamps();

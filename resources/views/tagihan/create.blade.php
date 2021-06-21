@@ -32,6 +32,7 @@
                     <select name="id_pelanggan" id="pelanggan" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split">
                     @foreach($pelanggan as $p)
                         <option value="{{$p->id}}">{{$customers->firstWhere('Id', $p->Id_customer)->nama}} ( {{$p->id}} )</option>
+                        <p>halo</p>
                     @endforeach
                     </select>
                 </span>

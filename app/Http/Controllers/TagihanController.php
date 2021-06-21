@@ -106,7 +106,17 @@ class TagihanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tagihan = $this->Tagihan->detailData($id);
+        $jenis_langganan = ref_jenis_langganan::all();
+        $pelanggan = $this->Pelanggan->detailData($tagihan->Id_pelanggan);
+        $customer = $this->Customer->detailData($pelanggan->Id_customer);
+        $data = [
+            'pelanggan' => $pelanggan,
+            'tagihan' => $tagihan,
+            'customer' => $customer,
+            'jenis_langganan' => $jenis_langganan
+        ];
+        return view('tagihan.edit', $data);
     }
 
     /**
@@ -118,7 +128,26 @@ class TagihanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'Tahun_bulan' => 'required',
+            'Meteran_bulan_lalu' => 'required',
+            'Meteran_bulan_sekarang' => 'required',
+            'Tarif_dasar' => 'required',
+        ]);
+
+        $pelanggan = $this->Pelanggan->detailData($request->id_pelanggan);
+        // $customer = $this->Customer->detailData($pelanggan->Id_customer);
+
+        $data = [
+            'Tahun_bulan' => $request->Tahun_bulan,
+            'Meteran_bulan_lalu' => $request->Meteran_bulan_lalu,
+            'Meteran_bulan_sekarang' => $request->Meteran_bulan_sekarang,
+            'Tarif_dasar' => $request->Tarif_dasar,
+        ];
+
+        $this->Tagihan->editData($id, $data);
+
+        return redirect('/admin/tagihan');
     }
 
     /**
