@@ -31,7 +31,7 @@
                     <label for="pelanggan"><strong>Pilih pelanggan : </strong></label>
                     <select name="id_pelanggan" id="pelanggan" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split">
                     @foreach($pelanggan as $p)
-                        <option value="{{$p->Id}}">{{$customers->firstWhere('Id', $p->Id_customer)->nama}} ( {{$p->id}} )</option>
+                        <option value="{{$p->id}}">{{$customers->firstWhere('Id', $p->Id_customer)->nama}} ( {{$p->id}} )</option>
                     @endforeach
                     </select>
                 </span>

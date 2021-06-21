@@ -84,7 +84,7 @@ class TagihanController extends Controller
 
         $this->Tagihan->addData($data);
 
-        return $pelanggan->Id_jenis_langganan;
+        return redirect('/admin/tagihan');
     }
 
     /**
