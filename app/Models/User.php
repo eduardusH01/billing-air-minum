@@ -55,4 +55,9 @@ class User extends Authenticatable
     public function editData($id, $data){
         return DB::table('users')->where('id', $id)->update($data);
     }
+
+    public function customer()
+    {
+        return $this->hasOne(Customer::class, 'Id_user');
+    }
 }

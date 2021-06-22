@@ -35,4 +35,9 @@ class Pelanggan extends Model
     public function editData($id, $data){
         return Pelanggan::where('id', $id)->update($data);
     }
+
+    public function listTagihan()
+    {
+        return $this->hasMany(Tagihan::class, 'Id_pelanggan');
+    }
 }

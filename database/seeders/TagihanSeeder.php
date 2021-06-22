@@ -18,7 +18,7 @@ class TagihanSeeder extends Seeder
             'Id_pelanggan' => '1', 
             'Tahun_bulan' => '2021-04-01', 
             'Meteran_bulan_lalu' => '22', 
-            'Meteran_bulan_sekarang' => '21', 
+            'Meteran_bulan_sekarang' => '30', 
             'Tarif_dasar' => '5000', 
             'Id_jenis_langganan' => '1', 
             'Id_user_operator' => '1',

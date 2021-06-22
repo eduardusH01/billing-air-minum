@@ -38,4 +38,9 @@ class Customer extends Model
     public function editData($id, $data){
         return DB::table('customer')->where('id', $id)->update($data);
     }
+
+    public function listPelanggan()
+    {
+        return $this->hasMany(Pelanggan::class, 'Id_customer');
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.pengguna')
 
 @section('nav')
 <a class="navbar-brand" href="{{ url('/pengguna') }}">

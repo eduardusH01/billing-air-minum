@@ -24,6 +24,8 @@ Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('role:user')->get('/pengguna', 'HomeController@index')->name('home');
+Route::middleware('role:user')->get('/pengguna/transaksi', 'HomeController@transaksi')->name('transaksi');
+
 Route::middleware('role:admin')->get('/admin', 'AdminController@index')->name('dashboard');
 
 Route::middleware('role:admin')->get('admin/users', 'UserController@index')->name('users.index');
