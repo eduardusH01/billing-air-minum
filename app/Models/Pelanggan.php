@@ -40,4 +40,9 @@ class Pelanggan extends Model
     {
         return $this->hasMany(Tagihan::class, 'Id_pelanggan');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'Id_customer');
+    }
 }

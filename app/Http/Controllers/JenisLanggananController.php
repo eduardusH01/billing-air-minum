@@ -3,32 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Pelanggan;
 use App\Models\Customer;
+use App\Models\Tagihan;
+use App\Models\User;
+use App\Models\ref_jenis_langganan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class JenisLanggananController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-     {
-         $this->Customer = new Customer();
-         $this->User = new User();
-     }
-
     public function index()
     {
-        $data = DB::table('users')
-       ->join('model_has_roles', 'model_has_roles.model_id', '=', 'users.id')
-       ->join('roles', 'roles.id', '=', 'model_has_roles.role_id')
-       ->select('roles.name as role', 'users.id', 'users.email', 'users.name')
-        ->get();
-        return view('user.users')->with('users', $data);
+        $data = ref_jenis_langganan::all();
+        return view('jenis_langganan.jenis_langganan', ['data' => $data]);
     }
 
     /**
@@ -38,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        //
     }
 
     /**
@@ -71,10 +64,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = [
-            'user' => $this->User->detailData($id),
-        ];
-        return view('user.edit', $data);
+        //
     }
 
     /**
@@ -84,21 +74,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        Request()->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
-
-        $data = [
-            'name' => Request()->name,
-            'email' => Request()->email,
-        ];
-
-        $this->User->editData($id, $data);
-
-        return redirect('/admin/users');
+        //
     }
 
     /**
@@ -109,7 +87,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::where('id',$id)->delete();
-        return redirect()->back();
+        //
     }
 }

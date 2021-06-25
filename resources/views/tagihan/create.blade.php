@@ -32,11 +32,11 @@
                     <select name="id_pelanggan" id="pelanggan" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split">
                     @foreach($pelanggan as $p)
                         <option value="{{$p->id}}">{{$customers->firstWhere('Id', $p->Id_customer)->nama}} ( {{$p->id}} )</option>
-                        <p>halo</p>
                     @endforeach
                     </select>
                 </span>
             </span>
+
             
             <!-- <span class="col-xs-12 col-sm-12 col-md-12">
                 <span class="form-group">
@@ -82,19 +82,6 @@
                     @if($errors->has('Meteran_bulan_sekarang'))
                         <div class="text-danger">
                             {{ $errors->first('Meteran_bulan_sekarang') }}
-                        </div>
-                    @endif
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Tarif Dasar : </strong>
-                    <input type="number" name="Tarif_dasar" class="form-control">
-                
-                    @if($errors->has('Tarif_dasar'))
-                        <div class="text-danger">
-                            {{ $errors->first('Tarif_dasar') }}
                         </div>
                     @endif
                 </div>

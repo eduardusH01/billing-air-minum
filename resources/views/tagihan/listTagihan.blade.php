@@ -10,25 +10,27 @@
 <table class="table table-bordered">
     <thead>
         <th>No</th>
-        <th>Nama Customer</th>
+        <th>Customer</th>
+        <th>Jenis</th>
         <th>Tahun Bulan</th>
-        <th>Meteran Bulan Lalu</th>
-        <th>Meteran Bulan Sekarang</th>
+        <th>Meteran bln skrng</th>
+        <th>Meteran bln lalu</th>
         <th>Tarif Dasar</th>
-        <th>Jenis Langanan</th>
+        <th>Total tagihan</th>
         <th>Action</th>
     </thead>
     <tbody>
         <?php $no = 1 ?>
-        @foreach($tagihan as $t)
+        @foreach($data as $t)
             <tr>
                 <td>{{$no++}}</td>
-                <td>{{$customer->firstWhere('Id', $pelanggan->firstWhere('id', $t->Id_pelanggan)->Id_customer)->nama}}</td>
+                <td>{{$t->customer}}</td>
+                <td>{{$t->nama}}</td>
                 <td>{{$t->Tahun_bulan}}</td>
-                <td>{{$t->Meteran_bulan_lalu}}</td>
                 <td>{{$t->Meteran_bulan_sekarang}}</td>
+                <td>{{$t->Meteran_bulan_lalu}}</td>
                 <td>{{$t->Tarif_dasar}}</td>
-                <td>{{$jenis_langganan->firstWhere('id', $t->Id_jenis_langganan)->nama}}</td>
+                <td>{{$t->Tarif_dasar * ($t->Meteran_bulan_sekarang-$t->Meteran_bulan_lalu)}}</td>
                 <td>
                     <a class="btn btn-sm btn-warning" href="/admin/tagihan/edit/{{ $t->id }}">Edit</a>
                     <a class="btn btn-sm btn-danger" href="/admin/tagihan/delete/{{ $t->id }}">Hapus</a>

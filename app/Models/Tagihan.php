@@ -33,8 +33,13 @@ class Tagihan extends Model
         return Tagihan::where('id', $id)->update($data);
     }
 
-    public function listTagihan()
+    public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class);
+    }
+
+    public function jenisLangganan()
+    {
+        return $this->hasOne(ref_jenis_langganan::class, 'Id_jenis_langganan');
     }
 }

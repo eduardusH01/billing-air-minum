@@ -95,6 +95,11 @@
                 Tagihan
                 </a>
             </li>
+            <li class="btn-toggle-nav">
+                <a href="/admin/langganan" class="nav-link text-white">
+                Jenis Langganan
+                </a>
+            </li>
         </ul>
         <hr>
         <a href="{{ route('logout') }}" class="nav-link text-white" onclick="event.preventDefault();

@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Tagihan;
 use App\Models\User;
 use App\Models\ref_jenis_langganan;
+use Illuminate\Support\Facades\DB;
 
 class TagihanController extends Controller
 {
@@ -23,20 +24,18 @@ class TagihanController extends Controller
         $this->User = new User();
         $this->Pelanggan = new Pelanggan();
         $this->Tagihan = new Tagihan();
+        $this->Jenis_langganan = new ref_jenis_langganan();
     }
 
     public function index()
     {
-        $pelanggan = Pelanggan::all();
-        $customer = Customer::all();
-        $jenis_langganan = ref_jenis_langganan::all();
-        $tagihan = Tagihan::all();
-        return view('tagihan.listTagihan', [
-            'customer' => $customer, 
-            'pelanggan' => $pelanggan, 
-            'tagihan' => $tagihan, 
-            'jenis_langganan' => $jenis_langganan
-        ]);
+        $data = DB::table('tagihan')
+       ->join('ref_jenis_langganan', 'ref_jenis_langganan.id', '=', 'tagihan.Id_jenis_langganan')
+       ->join('pelanggan', 'pelanggan.Id', '=', 'tagihan.Id_pelanggan')
+       ->join('customer', 'customer.Id', '=', 'pelanggan.Id_customer')
+       ->select('tagihan.id' ,'tagihan.Tahun_bulan', 'tagihan.Meteran_bulan_lalu', 'tagihan.Meteran_bulan_sekarang', 'tagihan.Tarif_dasar', 'ref_jenis_langganan.nama', 'customer.nama as customer')
+       ->get();
+        return view('tagihan.listTagihan', ['data' => $data]);
     }
 
     /**
@@ -64,10 +63,10 @@ class TagihanController extends Controller
             'Tahun_bulan' => 'required',
             'Meteran_bulan_lalu' => 'required',
             'Meteran_bulan_sekarang' => 'required',
-            'Tarif_dasar' => 'required',
         ]);
 
         $pelanggan = $this->Pelanggan->detailData($request->id_pelanggan);
+        $jenis = $this->Jenis_langganan->detailData($pelanggan->Id_jenis_langganan);
         // $customer = $this->Customer->detailData($pelanggan->Id_customer);
 
         $data = [
@@ -76,7 +75,7 @@ class TagihanController extends Controller
             'Meteran_bulan_lalu' => $request->Meteran_bulan_lalu,
             'Meteran_bulan_sekarang' => $request->Meteran_bulan_sekarang,
             'Id_jenis_langganan' => $pelanggan->Id_jenis_langganan,
-            'Tarif_dasar' => $request->Tarif_dasar,
+            'Tarif_dasar' => $jenis->Tarif_dasar_satuan,
             'Id_user_operator' => '1',
             'created_by' => 'Admin',
             'updated_by' => 'Admin',
@@ -132,7 +131,6 @@ class TagihanController extends Controller
             'Tahun_bulan' => 'required',
             'Meteran_bulan_lalu' => 'required',
             'Meteran_bulan_sekarang' => 'required',
-            'Tarif_dasar' => 'required',
         ]);
 
         $pelanggan = $this->Pelanggan->detailData($request->id_pelanggan);
@@ -142,7 +140,6 @@ class TagihanController extends Controller
             'Tahun_bulan' => $request->Tahun_bulan,
             'Meteran_bulan_lalu' => $request->Meteran_bulan_lalu,
             'Meteran_bulan_sekarang' => $request->Meteran_bulan_sekarang,
-            'Tarif_dasar' => $request->Tarif_dasar,
         ];
 
         $this->Tagihan->editData($id, $data);

@@ -88,19 +88,6 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Tarif Dasar : </strong>
-                    <input type="number" name="Tarif_dasar" class="form-control" value="{{$tagihan->Tarif_dasar}}">
-                
-                    @if($errors->has('Tarif_dasar'))
-                        <div class="text-danger">
-                            {{ $errors->first('Tarif_dasar') }}
-                        </div>
-                    @endif
-                </div>
-            </div>
-
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-md btn-success">Submit</button>
             </div>

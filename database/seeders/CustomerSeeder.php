@@ -23,7 +23,7 @@ class CustomerSeeder extends Seeder
             'Id_provinsi' => '123',
             'Nik' => '5434323114332223',
             'Kode_pos' => '12345',
-            'Id_user' => '4'
+            'Id_user' => '3'
         ]);
         Customer::create(        [
             'nama' => 'Patrick',
@@ -34,7 +34,7 @@ class CustomerSeeder extends Seeder
             'Id_provinsi' => '123',
             'Nik' => '5434323114332223',
             'Kode_pos' => '12345',
-            'Id_user' => '3'
+            'Id_user' => '2'
         ]);
     }
 }

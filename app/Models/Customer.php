@@ -43,4 +43,9 @@ class Customer extends Model
     {
         return $this->hasMany(Pelanggan::class, 'Id_customer');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'Id_user');
+    }
 }

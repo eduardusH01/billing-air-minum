@@ -53,3 +53,10 @@ Route::middleware('role:admin')->post('/admin/tagihan/store', 'TagihanController
 Route::middleware('role:admin')->get('/admin/tagihan/edit/{id}', 'TagihanController@edit');
 Route::middleware('role:admin')->post('/admin/tagihan/update/{id}', 'TagihanController@update');
 Route::middleware('role:admin')->get('/admin/tagihan/delete/{id}', 'TagihanController@destroy');
+
+Route::middleware('role:admin')->get('/admin/langganan', 'JenisLanggananController@index')->name('tagihan.index');
+Route::middleware('role:admin')->get('/admin/langganan/create', 'JenisLanggananController@create');
+Route::middleware('role:admin')->post('/admin/langganan/store', 'JenisLanggananController@store');
+Route::middleware('role:admin')->get('/admin/langganan/edit/{id}', 'JenisLanggananController@edit');
+Route::middleware('role:admin')->post('/admin/langganan/update/{id}', 'JenisLanggananController@update');
+Route::middleware('role:admin')->get('/admin/langganan/delete/{id}', 'JenisLanggananController@destroy');

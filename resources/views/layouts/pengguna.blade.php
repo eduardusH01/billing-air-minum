@@ -71,7 +71,7 @@
 
 <body>
     <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-        <a href="/admin" class="nav-link text-white">
+        <a href="/pengguna" class="nav-link text-white">
             <span class="fs-4">{{ Auth::user()->name }}</span>
         </a>
         <ul class="nav nav-pills flex-column mb-auto">

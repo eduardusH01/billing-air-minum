@@ -17,14 +17,14 @@ class RefJenisLanggananSeeder extends Seeder
         ref_jenis_langganan::create([
             'id' => '1',
             'nama' => 'air mineral',
-            'Batas_bawah' => '123',
-            'Tarif_dasar_satuan' => '123',
+            'Batas_bawah' => '12',
+            'Tarif_dasar_satuan' => '8000',
         ]);
         ref_jenis_langganan::create([
             'id' => '2',
             'nama' => 'air PDAM',
-            'Batas_bawah' => '321',
-            'Tarif_dasar_satuan' => '321',
+            'Batas_bawah' => '10',
+            'Tarif_dasar_satuan' => '4000',
         ]);
     }
 }

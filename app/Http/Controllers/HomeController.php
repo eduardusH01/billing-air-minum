@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\ref_jenis_langganan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
         $this->User = new User();
         $this->Pelanggan = new Pelanggan();
         $this->Tagihan = new Tagihan();
+        $customer = Customer::all();
     }
 
     /**
@@ -32,12 +35,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('home');
+        $data = DB::table('users')
+       ->join('customer', 'customer.Id_user', '=', 'users.id')
+       ->join('pelanggan', 'pelanggan.Id_customer', '=', 'customer.Id')
+       ->join('tagihan', 'tagihan.Id_pelanggan', '=', 'pelanggan.id')
+       ->select('tagihan.Tahun_bulan', 'tagihan.Meteran_bulan_lalu', 'tagihan.Meteran_bulan_sekarang', 'tagihan.Tarif_dasar', 'tagihan.Id_jenis_langganan')
+       ->where('users.id', Auth::user()->id)->get();
+
+       $jenis_langganan = ref_jenis_langganan::all();
+
+       return view('home', ['data' => $data, 'jenis_langganan' => $jenis_langganan]);
+       return $data->dd();
     }
 
     public function transaksi()
     {
-        return view('home');
+        // return view('home');
     }
 }
